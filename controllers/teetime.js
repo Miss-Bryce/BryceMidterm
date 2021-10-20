@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var Teetime = require('../models/teetime')
+const Teetime = require('../models/teetime')
 
-router.get('/teetimes', function(req, res, next) {
+router.get('/', function(req, res, next) {
     Teetime.find((err, teetime) => {
         if (err){
             console.log(err)
@@ -11,10 +11,21 @@ router.get('/teetimes', function(req, res, next) {
         }
         else{
             res.render('teetimes/teetimes', {
-                teetimes : teetime
+                teetime : teetime,
+                title: 'Tee Times'
             })
         }
     })
 });
+
+router.get('/create', (req,res) => {
+    res.render('teetimes/create', {
+        title: 'Add New Golfer'
+    })
+})
+
+router.post('/create', (req,res) => {
+
+})
 
 module.exports = router;

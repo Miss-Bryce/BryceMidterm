@@ -23,4 +23,4 @@ var teetimeSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Midterm', teetimeSchema)
+module.exports = mongoose.model('teetimes', teetimeSchema)
