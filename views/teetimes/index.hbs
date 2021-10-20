@@ -1,5 +1,6 @@
 <h1>{{title}}</h1>
 <p>Welcome to the Teetimes page. This displays the stats for all the golfers, showing the times for their tees.</p>
+<a href="/teetimes/create">Add a New Teetime.</a>
 
 <ul>
     {{#each teetime}}
@@ -8,5 +9,6 @@
         <li>{{this.cartRequired}}</li>
         <li>{{this.date}}</li>
         <li>{{this.greenFee}}</li>
+        <a href="/teetimes/edit/{{this._id}}" class="btn btn-info text-light">Edit</a>
     {{/each}}
 </ul>
