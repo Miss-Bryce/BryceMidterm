@@ -60,4 +60,25 @@ router.get('/edit/:_id', (req, res) => {
 
 })
 
+router.post('/edit/:_id', (req, res) =>{
+    let _id = req.params._id
+
+    Teetime.findByIdAndUpdate({_id:_id}, {
+        'golferName': req.body.golferName,
+        'holes': req.body.holes,
+        'cartRequired': req.body.cartRequired,
+        'date': req.body.date,
+        'greenFee': req.body.greenFee
+    } , null, (err, teetime) => {
+            if (err){
+                console.log(err)
+                res.end(err)
+            }
+            else{
+                res.redirect('/teetimes')
+            }
+
+        })
+})
+
 module.exports = router;
